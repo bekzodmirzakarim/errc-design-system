@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-ui);background:var(--surface-1);padding:22px;box-sizing:border-box}
+  .row{display:flex;gap:24px}
+  .b{display:flex;flex-direction:column;align-items:center;gap:9px}
+  .box{width:96px;height:54px;background:var(--surface-0);border-radius:var(--r-md);border:1px solid var(--line-100)}
+  .v{font-family:var(--font-mono);font-size:11px;color:var(--ink-500)}
+  .nm{font-size:10px;color:var(--ink-400);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+  .cap{font-size:11px;color:var(--ink-400);margin:0 0 16px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+</style></head>
+<body>
+  <p class="cap">Elevation — subtle, low-drama</p>
+  <div class="row">
+    <div class="b"><div class="box" style="box-shadow:var(--sh-1)"></div><span class="nm">sh-1 · card</span></div>
+    <div class="b"><div class="box" style="box-shadow:var(--sh-2)"></div><span class="nm">sh-2 · raised</span></div>
+    <div class="b"><div class="box" style="box-shadow:var(--sh-3)"></div><span class="nm">sh-3 · popover</span></div>
+    <div class="b"><div class="box" style="box-shadow:var(--focus-ring);border-color:var(--brand-500)"></div><span class="nm">focus ring</span></div>
+  </div>
+</body></html>

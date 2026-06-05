@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-ui);background:var(--surface-0);padding:20px 22px;box-sizing:border-box}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  button{font-family:var(--font-ui);font-size:13px;font-weight:600;border-radius:var(--r-sm);padding:9px 16px;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+  .primary{background:var(--brand-500);color:#fff}
+  .primary:hover{background:var(--brand-600)}
+  .secondary{background:var(--surface-0);color:var(--brand-600);border-color:var(--line-300)}
+  .secondary:hover{background:var(--surface-2)}
+  .ghost{background:transparent;color:var(--ink-500)}
+  .ghost:hover{background:var(--surface-2)}
+  .danger{background:var(--danger);color:#fff}
+  .sm{font-size:12px;padding:6px 11px}
+  .cap{font-size:11px;color:var(--ink-400);margin:0 0 14px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+</style></head>
+<body>
+  <p class="cap">Buttons</p>
+  <div class="row">
+    <button class="primary">Принять в работу</button>
+    <button class="secondary">Передать коллеге</button>
+    <button class="ghost">Отмена</button>
+    <button class="danger">Эскалация</button>
+    <button class="primary sm">+ Новый случай</button>
+  </div>
+</body></html>

@@ -1,0 +1,138 @@
+/* ============================================================
+   ЕРРЦ — Единый Республиканский Ридинг-Центр
+   Design tokens: color + typography foundations
+   Medical monitoring UI for neuroradiology / stroke care
+   ============================================================ */
+
+/* Fonts: Inter (UI text) + JetBrains Mono (timers, numeric data).
+   These are the brand-specified families, loaded from Google Fonts.
+   If you have licensed local files, drop them in /fonts and swap. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- BRAND CORE ---------- */
+  --brand-900: #06203f;   /* darkest navy — header rail, deep chrome */
+  --brand-800: #0a2d5e;   /* PRIMARY — corporate navy */
+  --brand-700: #0f3d7a;   /* hover on navy surfaces */
+  --brand-600: #14529e;   /* mid navy */
+  --brand-500: #1d6fd8;   /* ACCENT — interactive blue, links, focus */
+  --brand-400: #4a8ee5;   /* lighter accent, hover lifts */
+  --brand-300: #8fbaf0;   /* soft accent */
+  --brand-100: #dbeafe;   /* accent wash / selected row */
+  --brand-50:  #eff5fd;   /* faint accent tint background */
+
+  /* ---------- NEUTRALS (cool slate, medical-clean) ---------- */
+  --ink-900: #0f1b2d;     /* primary text on light */
+  --ink-700: #2b3a4f;     /* secondary text */
+  --ink-500: #5a6b80;     /* tertiary / muted labels */
+  --ink-400: #8493a6;     /* placeholder, disabled text */
+  --line-300: #c9d4e0;    /* strong border / divider */
+  --line-200: #dde5ee;    /* default border */
+  --line-100: #eef2f7;    /* hairline divider, table stripes */
+
+  --surface-0: #ffffff;   /* cards, panels */
+  --surface-1: #f6f9fc;   /* app background */
+  --surface-2: #eef3f9;   /* sunken wells, table headers */
+  --surface-inverse: #0a2d5e; /* navy surface, text becomes light */
+  --on-inverse: #eaf1fb;  /* text on navy */
+  --on-inverse-dim: #9bb6d8;
+
+  /* ---------- STATUS / PATIENT STATES ----------
+     Each state has: solid (dot/bar), bg (chip wash), text (chip label) */
+  --st-critical:     #7c3aed;  /* критический — purple */
+  --st-critical-bg:  #f1ebfe;
+  --st-critical-tx:  #5b21b6;
+
+  --st-waiting:      #e0a008;  /* ожидание — yellow/amber */
+  --st-waiting-bg:   #fdf4dc;
+  --st-waiting-tx:   #8a5d00;
+
+  --st-scanning:     #1d6fd8;  /* сканирование — blue (brand accent) */
+  --st-scanning-bg:  #e3eefc;
+  --st-scanning-tx:  #14529e;
+
+  --st-inwork:       #64748b;  /* в работе — gray/slate */
+  --st-inwork-bg:    #eef1f5;
+  --st-inwork-tx:    #455161;
+
+  --st-ready:        #16a34a;  /* готово — green */
+  --st-ready-bg:     #e2f5e9;
+  --st-ready-tx:     #11703a;
+
+  /* Alert/vitals semantics */
+  --danger:  #dc2626;
+  --danger-bg: #fdeaea;
+  --warn:    #e0a008;
+  --ok:      #16a34a;
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-ui:   'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- TYPE SCALE (dense, 1920×1080 monitor) ---------- */
+  --fs-display: 40px;  --lh-display: 44px;  /* big board numbers */
+  --fs-h1: 26px;       --lh-h1: 32px;
+  --fs-h2: 20px;       --lh-h2: 26px;
+  --fs-h3: 16px;       --lh-h3: 22px;
+  --fs-body: 14px;     --lh-body: 20px;
+  --fs-sm: 13px;       --lh-sm: 18px;
+  --fs-label: 12px;    --lh-label: 16px;   /* uppercase labels */
+  --fs-caption: 11px;  --lh-caption: 14px;
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --track-label: 0.06em;  /* letter-spacing for uppercase labels */
+  --track-mono: 0.01em;
+
+  /* ---------- SPACING (4px base) ---------- */
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px; --sp-12: 48px;
+
+  /* ---------- RADII (square-leaning, clinical) ---------- */
+  --r-xs: 3px; --r-sm: 5px; --r-md: 7px; --r-lg: 10px; --r-pill: 999px;
+
+  /* ---------- ELEVATION (subtle, low-drama) ---------- */
+  --sh-1: 0 1px 2px rgba(10,45,94,0.06), 0 1px 1px rgba(10,45,94,0.04);
+  --sh-2: 0 2px 6px rgba(10,45,94,0.08), 0 1px 2px rgba(10,45,94,0.06);
+  --sh-3: 0 8px 24px rgba(10,45,94,0.12), 0 2px 6px rgba(10,45,94,0.08);
+  --focus-ring: 0 0 0 3px rgba(29,111,216,0.30);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   ============================================================ */
+.ds-display {
+  font-family: var(--font-ui);
+  font-size: var(--fs-display); line-height: var(--lh-display);
+  font-weight: var(--fw-bold); color: var(--ink-900);
+  letter-spacing: -0.02em;
+}
+.ds-h1 { font-family: var(--font-ui); font-size: var(--fs-h1); line-height: var(--lh-h1); font-weight: var(--fw-bold); color: var(--ink-900); letter-spacing: -0.01em; }
+.ds-h2 { font-family: var(--font-ui); font-size: var(--fs-h2); line-height: var(--lh-h2); font-weight: var(--fw-semibold); color: var(--ink-900); }
+.ds-h3 { font-family: var(--font-ui); font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: var(--fw-semibold); color: var(--ink-900); }
+.ds-body { font-family: var(--font-ui); font-size: var(--fs-body); line-height: var(--lh-body); font-weight: var(--fw-regular); color: var(--ink-700); }
+.ds-sm { font-family: var(--font-ui); font-size: var(--fs-sm); line-height: var(--lh-sm); font-weight: var(--fw-regular); color: var(--ink-500); }
+.ds-label {
+  font-family: var(--font-ui); font-size: var(--fs-label); line-height: var(--lh-label);
+  font-weight: var(--fw-semibold); color: var(--ink-500);
+  text-transform: uppercase; letter-spacing: var(--track-label);
+}
+.ds-caption { font-family: var(--font-ui); font-size: var(--fs-caption); line-height: var(--lh-caption); color: var(--ink-400); }
+
+/* Mono — timers, IDs, vitals, all tabular numeric data */
+.ds-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--track-mono);
+  color: var(--ink-900);
+}
+.ds-timer {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--fw-semibold);
+  font-size: 22px; line-height: 26px;
+  color: var(--ink-900);
+}

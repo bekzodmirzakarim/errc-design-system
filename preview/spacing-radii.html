@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-ui);background:var(--surface-0);padding:18px 22px;box-sizing:border-box}
+  .row{display:flex;gap:20px}
+  .b{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .box{width:74px;height:50px;background:var(--surface-2);border:1.5px solid var(--brand-500)}
+  .v{font-family:var(--font-mono);font-size:11px;color:var(--ink-500)}
+  .nm{font-size:10px;color:var(--ink-400);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+  .cap{font-size:11px;color:var(--ink-400);margin:0 0 14px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+</style></head>
+<body>
+  <p class="cap">Corner radii — square-leaning, clinical</p>
+  <div class="row">
+    <div class="b"><div class="box" style="border-radius:3px"></div><span class="nm">xs</span><span class="v">3px</span></div>
+    <div class="b"><div class="box" style="border-radius:5px"></div><span class="nm">sm</span><span class="v">5px</span></div>
+    <div class="b"><div class="box" style="border-radius:7px"></div><span class="nm">md</span><span class="v">7px</span></div>
+    <div class="b"><div class="box" style="border-radius:10px"></div><span class="nm">lg</span><span class="v">10px</span></div>
+    <div class="b"><div class="box" style="border-radius:999px"></div><span class="nm">pill</span><span class="v">999</span></div>
+  </div>
+</body></html>

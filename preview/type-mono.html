@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-ui);background:var(--surface-0);padding:18px 22px;box-sizing:border-box}
+  .grid{display:flex;gap:28px;align-items:flex-end}
+  .b{display:flex;flex-direction:column;gap:4px}
+  .lab{font-size:10px;color:var(--ink-400);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+  .big{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:600;font-size:36px;line-height:1;color:var(--ink-900)}
+  .big.crit{color:var(--danger)}
+  .mid{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:16px;color:var(--ink-700)}
+  .cap{font-size:11px;color:var(--ink-400);margin:0 0 14px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+</style></head>
+<body>
+  <p class="cap">JetBrains Mono — timers &amp; numeric data</p>
+  <div class="grid">
+    <div class="b"><span class="lab">Door-to-needle</span><span class="big crit">00:42:18</span></div>
+    <div class="b"><span class="lab">ID пациента</span><span class="mid">PT-2024-0917</span></div>
+    <div class="b"><span class="lab">NIHSS</span><span class="mid">14</span></div>
+    <div class="b"><span class="lab">АД</span><span class="mid">168/94</span></div>
+    <div class="b"><span class="lab">SpO₂</span><span class="mid">97%</span></div>
+  </div>
+</body></html>

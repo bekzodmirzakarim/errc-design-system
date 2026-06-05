@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-ui);background:var(--surface-0);padding:20px 22px;box-sizing:border-box}
+  .grid{display:flex;gap:16px;align-items:flex-end}
+  .f{display:flex;flex-direction:column;gap:5px;flex:1}
+  label{font-size:11px;font-weight:600;color:var(--ink-500);text-transform:uppercase;letter-spacing:.04em}
+  input,select{font-family:var(--font-ui);font-size:13px;color:var(--ink-900);padding:8px 11px;border:1px solid var(--line-300);border-radius:var(--r-sm);background:var(--surface-0);outline:none}
+  input:focus{border-color:var(--brand-500);box-shadow:var(--focus-ring)}
+  input::placeholder{color:var(--ink-400)}
+  .focused{border-color:var(--brand-500);box-shadow:var(--focus-ring)}
+  .cap{font-size:11px;color:var(--ink-400);margin:0 0 14px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+</style></head>
+<body>
+  <p class="cap">Form inputs</p>
+  <div class="grid">
+    <div class="f"><label>Поиск пациента</label><input placeholder="ФИО или ID…"></div>
+    <div class="f"><label>Приоритет</label><input class="focused" value="Критический"></div>
+    <div class="f"><label>Модальность</label><select><option>КТ-ангиография</option></select></div>
+  </div>
+</body></html>

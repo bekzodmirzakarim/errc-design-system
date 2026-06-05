@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-ui);background:var(--surface-0);padding:20px 22px;box-sizing:border-box}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+  .chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:var(--r-pill)}
+  .dot{width:7px;height:7px;border-radius:50%}
+  .pulse{box-shadow:0 0 0 0 currentColor;animation:p 1.6s infinite}
+  @keyframes p{0%{box-shadow:0 0 0 0 rgba(124,58,237,.5)}70%{box-shadow:0 0 0 6px rgba(124,58,237,0)}100%{box-shadow:0 0 0 0 rgba(124,58,237,0)}}
+  .badge{font-family:var(--font-mono);font-size:11px;font-weight:600;padding:2px 7px;border-radius:var(--r-xs);background:var(--surface-2);color:var(--ink-700)}
+  .cap{font-size:11px;color:var(--ink-400);margin:0 0 14px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
+</style></head>
+<body>
+  <p class="cap">Status chips &amp; badges</p>
+  <div class="row">
+    <span class="chip" style="background:var(--st-critical-bg);color:var(--st-critical-tx)"><span class="dot pulse" style="background:var(--st-critical);color:var(--st-critical)"></span>Критический</span>
+    <span class="chip" style="background:var(--st-waiting-bg);color:var(--st-waiting-tx)"><span class="dot" style="background:var(--st-waiting)"></span>Ожидание</span>
+    <span class="chip" style="background:var(--st-scanning-bg);color:var(--st-scanning-tx)"><span class="dot" style="background:var(--st-scanning)"></span>Сканирование</span>
+    <span class="chip" style="background:var(--st-inwork-bg);color:var(--st-inwork-tx)"><span class="dot" style="background:var(--st-inwork)"></span>В работе</span>
+    <span class="chip" style="background:var(--st-ready-bg);color:var(--st-ready-tx)"><span class="dot" style="background:var(--st-ready)"></span>Готово</span>
+  </div>
+  <div class="row">
+    <span class="badge">КТ</span>
+    <span class="badge">КТ-АГ</span>
+    <span class="badge">МРТ DWI</span>
+    <span class="badge" style="background:var(--danger-bg);color:var(--danger)">NIHSS 14</span>
+    <span class="badge" style="background:var(--brand-100);color:var(--brand-600)">Окно 02:14</span>
+  </div>
+</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"><link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0}
+  body{font-family:var(--font-ui);background:var(--surface-1);padding:20px 22px;box-sizing:border-box}
+  .row{display:flex;gap:14px}
+  .pc{flex:1;background:var(--surface-0);border:1px solid var(--line-200);border-radius:var(--r-md);box-shadow:var(--sh-1);overflow:hidden}
+  .pc .accent{height:4px}
+  .hd{display:flex;justify-content:space-between;align-items:flex-start;padding:11px 13px 0}
+  .nm{font-size:14px;font-weight:600;color:var(--ink-900)}
+  .id{font-family:var(--font-mono);font-size:11px;color:var(--ink-400);margin-top:1px}
+  .chip{font-size:10px;font-weight:600;padding:3px 8px;border-radius:var(--r-pill)}
+  .body{padding:9px 13px 12px;display:flex;align-items:flex-end;justify-content:space-between}
+  .tlab{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-400);font-weight:600}
+  .timer{font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:600;font-size:24px;line-height:1;color:var(--ink-900)}
+  .timer.crit{color:var(--danger)}
+  .meta{font-family:var(--font-mono);font-size:11px;color:var(--ink-500);text-align:right}
+</style></head>
+<body>
+  <div class="row">
+    <div class="pc">
+      <div class="accent" style="background:var(--st-critical)"></div>
+      <div class="hd"><div><div class="nm">Смирнов А. В.</div><div class="id">PT-2024-0917</div></div>
+        <span class="chip" style="background:var(--st-critical-bg);color:var(--st-critical-tx)">Критический</span></div>
+      <div class="body"><div><div class="tlab">Door-to-needle</div><div class="timer crit">00:42:18</div></div>
+        <div class="meta">NIHSS 14<br>КТ-АГ</div></div>
+    </div>
+    <div class="pc">
+      <div class="accent" style="background:var(--st-scanning)"></div>
+      <div class="hd"><div><div class="nm">Петрова И. С.</div><div class="id">PT-2024-0918</div></div>
+        <span class="chip" style="background:var(--st-scanning-bg);color:var(--st-scanning-tx)">Сканирование</span></div>
+      <div class="body"><div><div class="tlab">В работе</div><div class="timer">00:08:51</div></div>
+        <div class="meta">NIHSS 6<br>МРТ DWI</div></div>
+    </div>
+  </div>
+</body></html>
