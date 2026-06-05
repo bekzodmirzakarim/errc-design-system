@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЕРРЦ — Design System</title>
+  <link rel="stylesheet" href="colors_and_type.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--surface-1);
+      color: var(--ink-900);
+      font-family: var(--font-ui);
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+    }
+    .header {
+      background: var(--brand-800);
+      color: var(--on-inverse);
+      padding: var(--sp-8) var(--sp-10);
+      box-shadow: var(--sh-2);
+    }
+    .header h1 {
+      font-size: var(--fs-h1);
+      margin-bottom: var(--sp-2);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      background: var(--brand-500);
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .header p {
+      color: var(--on-inverse-dim);
+      font-size: var(--fs-sm);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--sp-10);
+    }
+    .intro {
+      background: white;
+      border: 1px solid var(--line-200);
+      border-radius: var(--r-md);
+      padding: var(--sp-6);
+      margin-bottom: var(--sp-8);
+      box-shadow: var(--sh-1);
+    }
+    .intro h2 {
+      font-size: var(--fs-h2);
+      margin-bottom: var(--sp-3);
+      color: var(--ink-900);
+    }
+    .intro p {
+      color: var(--ink-700);
+      line-height: var(--lh-body);
+      margin-bottom: var(--sp-2);
+    }
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--sp-6);
+      margin-top: var(--sp-8);
+    }
+    .section {
+      background: white;
+      border: 1px solid var(--line-200);
+      border-radius: var(--r-md);
+      padding: var(--sp-6);
+      box-shadow: var(--sh-1);
+      transition: box-shadow 120ms ease, transform 120ms ease;
+    }
+    .section:hover {
+      box-shadow: var(--sh-2);
+      transform: translateY(-1px);
+    }
+    .section h3 {
+      font-size: var(--fs-h3);
+      margin-bottom: var(--sp-3);
+      color: var(--ink-900);
+    }
+    .section p {
+      color: var(--ink-700);
+      font-size: var(--fs-sm);
+      line-height: var(--lh-sm);
+      margin-bottom: var(--sp-4);
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .link-item {
+      display: inline-block;
+      padding: var(--sp-2) var(--sp-3);
+      background: var(--brand-50);
+      border: 1px solid var(--brand-100);
+      border-radius: var(--r-sm);
+      color: var(--brand-600);
+      text-decoration: none;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semibold);
+      transition: all 120ms ease;
+    }
+    .link-item:hover {
+      background: var(--brand-100);
+      color: var(--brand-800);
+    }
+    .footer {
+      background: var(--brand-800);
+      color: var(--on-inverse-dim);
+      text-align: center;
+      padding: var(--sp-6);
+      margin-top: var(--sp-12);
+      font-size: var(--fs-sm);
+    }
+    .grid-2col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--sp-3);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1><div class="logo-mark">Σ</div> ЕРРЦ</h1>
+    <p>Единый Республиканский Ридинг-Центр · Design System</p>
+    <p style="margin-top: var(--sp-1); font-size: var(--fs-caption);">
+      Medical monitoring UI for neuroradiologists tracking stroke (ОНМК) patients in real time
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="intro">
+      <h2>Система мониторинга инсульта</h2>
+      <p>
+        ЕРРЦ — это корпоративная система для невролучевиков по мониторингу пациентов с инсультом (ОНМК)
+        в реальном времени. Система включает дизайн-систему с полным набором компонентов, токенов цвета и типографики,
+        а также два интерактивных UI-кита: доску мониторинга для ридинг-центра и операционный экран для стены.
+      </p>
+      <p style="margin-top: var(--sp-3);">
+        <strong>Стек:</strong> React (Babel in-browser), CSS variables, Lucide icons, Inter + JetBrains Mono
+      </p>
+    </div>
+
+    <div class="sections">
+      <!-- Design System -->
+      <div class="section">
+        <h3>📋 Design System</h3>
+        <p>
+          Полный набор токенов дизайна, цветовой палитры, типографики и базовых компонентов.
+          Все стили определены как CSS-переменные для максимальной гибкости.
+        </p>
+        <div class="links">
+          <a href="colors_and_type.css" class="link-item" download>💾 colors_and_type.css</a>
+          <a href="preview/colors-brand.html" class="link-item">🎨 Цвета (Brand)</a>
+          <a href="preview/colors-status.html" class="link-item">🔴 Цвета (Статусы)</a>
+          <a href="preview/type-headings.html" class="link-item">📝 Типография</a>
+          <a href="preview/comp-buttons.html" class="link-item">🔘 Компоненты</a>
+        </div>
+      </div>
+
+      <!-- Monitoring Board -->
+      <div class="section">
+        <h3>🏥 Мониторинг ОНМК</h3>
+        <p>
+          Интерактивная 5-колонная доска для отслеживания пациентов через фазы (Ожидание → Готово).
+          Живые таймеры door-to-needle, фильтры по статусу, детальный drawer с витальными показателями.
+        </p>
+        <div class="links">
+          <a href="ui_kits/monitoring-board/index.html" class="link-item">▶️ Открыть доску</a>
+          <a href="ui_kits/monitoring-board/README.md" class="link-item">📖 README</a>
+        </div>
+      </div>
+
+      <!-- Big Screen -->
+      <div class="section">
+        <h3>📺 Операционный экран</h3>
+        <p>
+          1920×1080 wall display для операционной: карта Узбекистана с регионами, KPI, лента пациентов,
+          панель экспертов, AI Stroke очередь. Auto-refresh каждые 5 секунд.
+        </p>
+        <div class="links">
+          <a href="ui_kits/big-screen/index.html" class="link-item">▶️ Открыть экран</a>
+          <a href="ui_kits/big-screen/README.md" class="link-item">📖 README</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro" style="margin-top: var(--sp-8);">
+      <h2>Preview Компонентов</h2>
+      <div class="grid-2col" style="margin-top: var(--sp-4);">
+        <a href="preview/colors-brand.html" class="link-item">Brand цвета</a>
+        <a href="preview/colors-accent.html" class="link-item">Accent цвета</a>
+        <a href="preview/colors-neutral.html" class="link-item">Neutral цвета</a>
+        <a href="preview/colors-status.html" class="link-item">Status цвета</a>
+        <a href="preview/type-headings.html" class="link-item">Заголовки</a>
+        <a href="preview/type-body.html" class="link-item">Body текст</a>
+        <a href="preview/type-mono.html" class="link-item">Моно (числа)</a>
+        <a href="preview/comp-buttons.html" class="link-item">Кнопки</a>
+        <a href="preview/comp-chips.html" class="link-item">Chips</a>
+        <a href="preview/comp-inputs.html" class="link-item">Inputs</a>
+        <a href="preview/comp-patient-card.html" class="link-item">Patient Card</a>
+        <a href="preview/spacing-scale.html" class="link-item">Spacing Scale</a>
+        <a href="preview/spacing-radii.html" class="link-item">Radii</a>
+        <a href="preview/spacing-elevation.html" class="link-item">Elevation</a>
+        <a href="preview/brand-logo.html" class="link-item">Логотип</a>
+      </div>
+    </div>
+
+    <div class="intro" style="margin-top: var(--sp-8);">
+      <h2>Быстрый старт</h2>
+      <p>
+        <strong>Для собственного проекта:</strong>
+      </p>
+      <pre style="background: var(--surface-2); padding: var(--sp-3); border-radius: var(--r-sm);
+                   overflow-x: auto; font-size: var(--fs-caption); line-height: 1.5; margin-top: var(--sp-2);"><code>&lt;link rel="stylesheet" href="colors_and_type.css"&gt;
+&lt;div class="ds-h2"&gt;Заголовок&lt;/div&gt;
+&lt;p class="ds-body"&gt;Текст тела&lt;/p&gt;
+&lt;span class="ds-timer"&gt;00:42:18&lt;/span&gt;</code></pre>
+      <p style="margin-top: var(--sp-3);">
+        <strong>Основные классы:</strong>
+        <code style="background: var(--surface-2); padding: 2px 4px; border-radius: 2px;">
+          .ds-display, .ds-h1, .ds-h2, .ds-h3, .ds-body, .ds-sm, .ds-label, .ds-caption, .ds-mono, .ds-timer
+        </code>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>ЕРРЦ — Единый Республиканский Ридинг-Центр</p>
+    <p style="margin-top: var(--sp-2); font-size: var(--fs-caption);">
+      Design System for real-time stroke monitoring • Medical UI for neuroradiologists
+    </p>
+  </div>
+</body>
+</html>
