@@ -145,44 +145,167 @@
 
 ---
 
-## 7. Вопросы для уточнения (перед разработкой)
+## 7. Уточнения (ОДОБРЕНО ✅)
 
-⚠️ **Нужны ответы:**
-
-1. **Navbar видна внутри Big Screen и Monitoring Board, или только на главном экране?**
-   - Вариант A: Всегда видна (quick-switch между экранами)
-   - Вариант B: Только на главном экране, в UI-китах спрячется
-
-2. **Ширина navbar:**
-   - 200px? 250px? Другое?
-
-3. **Вертикальное выравнивание кнопок:**
-   - Сверху (под логотипом)?
-   - По центру?
-   - Занимают весь sidebar?
-
-4. **Collapse/Expand функция:**
-   - Нужна ли кнопка свернуть navbar?
-   - На каких экранах?
-
-5. **Мобильность:**
-   - Нужна ли адаптация для экранов < 1280px?
-   - Если да — navbar коллапсируется в гамбургер-меню?
-
-6. **Стиль активной кнопки:**
-   - Left border (как я написал)?
-   - Background highlight?
-   - Both?
-
-7. **Footer в navbar:**
-   - Версия системы?
-   - Ссылка на GitHub?
-   - Контакт?
-   - Или не нужен?
+| # | Вопрос | Ответ | Примечание |
+|---|--------|-------|-----------|
+| 1 | Navbar везде? | **Везде** ✅ | На главном экране, Big Screen, Monitoring Board |
+| 2 | Ширина navbar | **200px** ✅ | Фиксированная ширина |
+| 3 | Вертикальное расположение | **Сверху** ✅ | Кнопки под логотипом, вверху sidebar |
+| 4 | Collapse-функция | **Да** ✅ | Кнопка свернуть navbar (иконка `chevron-left` или `menu`) |
+| 5 | Мобильность | **Нет** ✗ | Только десктоп, min-width: 1280px |
+| 6 | Стиль активной кнопки | **Left border** ✅ | Только левая border, 3–4px accent blue |
+| 7 | Footer в navbar | **Нет** ✗ | Пусто или только пространство |
 
 ---
 
-## 8. Фаза 2 (будущие обновления)
+## 8. Детальная спецификация (на основе ответов)
+
+### 8.1 Структура навбара
+
+```
+┌─────────────────┐
+│   LOGO MARK     │  ← 40px × 40px, margin: var(--sp-4)
+├─────────────────┤
+│                 │
+│  [BIG SCREEN]   │  ← Кнопка 1, сверху
+│                 │
+│  [MONITORING]   │  ← Кнопка 2
+│                 │
+├─────────────────┤
+│                 │  ← Пустое пространство (flex-grow)
+├─────────────────┤
+│  [⌄ COLLAPSE]   │  ← Кнопка collapse (внизу)
+└─────────────────┘
+```
+
+### 8.2 Размеры и отступы
+
+| Элемент | Значение | Замечание |
+|---------|----------|-----------|
+| Ширина navbar | 200px | Fixed |
+| Высота navbar | 100vh | Full viewport |
+| Padding navbar | var(--sp-4) | 16px со всех сторон |
+| Logo size | 40px × 40px | Centered |
+| Button padding | var(--sp-4) | 16px |
+| Button height | ~48px | min-height |
+| Gap между кнопками | var(--sp-3) | 12px |
+| Left border активной | 4px | `--brand-500` (#1D6FD8) |
+
+### 8.3 Navbar Button (CSS class: `.navbar-button`)
+
+**Состояния:**
+
+1. **Не активна (default)**
+   ```css
+   background: transparent;
+   color: var(--on-inverse-dim);
+   border-left: 4px solid transparent;
+   padding-left: calc(var(--sp-4) - 4px); /* чтобы контент не прыгал */
+   ```
+
+2. **Hover**
+   ```css
+   background: rgba(255, 255, 255, 0.07);
+   color: var(--on-inverse);
+   border-left: 4px solid transparent;
+   ```
+
+3. **Активна (с класом `.navbar-button.active`)**
+   ```css
+   background: rgba(29, 111, 216, 0.15);
+   color: var(--on-inverse);
+   border-left: 4px solid var(--brand-500); /* solid accent border */
+   ```
+
+4. **Focus (keyboard)**
+   ```css
+   outline: var(--focus-ring);
+   outline-offset: -3px;
+   ```
+
+### 8.4 Collapse кнопка (внизу navbar)
+
+- **Иконка:** `chevron-left` (Lucide, 16px)
+- **Текст:** "Свернуть" или просто иконка
+- **На клик:** Navbar сжимается на какое-то значение (опционально, обсудить ширину)
+- **Состояние:** Сохраняется в localStorage (опционально)
+
+### 8.5 Main content (справа от navbar)
+
+```css
+margin-left: 200px; /* ширина navbar */
+padding: var(--sp-10); /* 40px */
+background: var(--surface-1);
+min-height: 100vh;
+overflow-y: auto;
+```
+
+### 8.6 Навигация между экранами (JavaScript логика)
+
+**Определение текущей страницы:**
+```javascript
+const currentPath = window.location.pathname;
+const isMainPage = currentPath === '/' || currentPath.includes('index.html');
+const isBigScreen = currentPath.includes('big-screen');
+const isMonitoring = currentPath.includes('monitoring-board');
+
+// Добавить класс active к нужной кнопке
+```
+
+**Кнопка Big Screen:**
+- URL: `/ui_kits/big-screen/index.html`
+- Active если: `isBigScreen === true`
+
+**Кнопка Monitoring Board:**
+- URL: `/ui_kits/monitoring-board/index.html`
+- Active если: `isMonitoring === true`
+
+---
+
+## 9. Задачи разработки (Breakdown)
+
+### Phase 1.1.1 — Создать layout.css
+
+- [ ] Создать файл `layout.css`
+- [ ] Написать стили для `.navbar` (200px, navy фон, flexbox column)
+- [ ] Написать стили для `.navbar-button` (все состояния)
+- [ ] Написать стили для `.navbar-button.active` (left border + hover)
+- [ ] Написать стили для main content (`margin-left: 200px`, padding)
+- [ ] Импортировать в `index.html` перед другими стилями
+
+### Phase 1.1.2 — Обновить index.html
+
+- [ ] Обернуть существующий контент в `<div class="main-content">`
+- [ ] Добавить navbar сверху / сбоку (HTML структура)
+- [ ] Logo mark в navbar
+- [ ] Две кнопки (Big Screen, Monitoring Board)
+- [ ] Collapse кнопка внизу
+- [ ] Импортировать `layout.css`
+
+### Phase 1.1.3 — JavaScript для активной кнопки
+
+- [ ] Написать скрипт, определяющий текущую страницу
+- [ ] Добавить класс `.active` к активной кнопке при загрузке
+- [ ] Обновить класс `.active` при переходе между страницами (или просто reload)
+
+### Phase 1.1.4 — Collapse функция (опционально)
+
+- [ ] Кнопка collapse внизу navbar
+- [ ] На клик: navbar сжимается (какая ширина? обсудить)
+- [ ] Иконка меняется на `chevron-right`
+- [ ] localStorage сохранение состояния
+
+### Phase 1.1.5 — Обновить Big Screen и Monitoring Board
+
+- [ ] Добавить navbar в `ui_kits/big-screen/index.html`
+- [ ] Добавить navbar в `ui_kits/monitoring-board/index.html`
+- [ ] Убедиться, что navbar не блокирует контент
+- [ ] Проверить responsive поведение (navbar + UI-кит должны умещаться на 1920×1080)
+
+---
+
+## 10. Фаза 2+ (будущие обновления)
 
 *Заполнится позже, когда закончим фазу 1*
 
@@ -197,6 +320,10 @@
 
 | Задача | Статус | Дата |
 |--------|--------|------|
-| 1.1 Левая navbar + кнопки | 📝 Требования | TBD |
-| Остальное | ⏳ Ожидание | TBD |
+| 1.1 Левая navbar + кнопки | ✅ ТЗ одобрена | TBD |
+| 1.1.1 Создать layout.css | ⏳ Ожидание | TBD |
+| 1.1.2 Обновить index.html | ⏳ Ожидание | TBD |
+| 1.1.3 JavaScript активная кнопка | ⏳ Ожидание | TBD |
+| 1.1.4 Collapse функция | ⏳ Ожидание | TBD |
+| 1.1.5 Обновить UI-киты | ⏳ Ожидание | TBD |
 
